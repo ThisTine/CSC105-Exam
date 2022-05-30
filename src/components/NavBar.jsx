@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import {Navbar,Collapse,NavItem,NavLink,NavbarBrand,NavbarToggler,Nav} from 'reactstrap'
+import {NavLink} from 'react-router-dom'
+import {Navbar,Collapse,NavItem,NavbarBrand,NavbarToggler,Nav} from 'reactstrap'
 
-export default function NavBar({setpage}) {
+export default function NavBar() {
     const [isOpen,setIsOpen] = useState(false)
   return (
     <Navbar
@@ -20,19 +21,15 @@ export default function NavBar({setpage}) {
             navbar
           >
             <NavItem>
-              <NavLink onClick={()=>setpage("home")}>
-                Home
-              </NavLink>
+            <NavLink to="/" className='nav-link' >Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink onClick={()=>setpage("about")}>
-                About Me
-              </NavLink>
+            <NavLink to="/about" className='nav-link' >About</NavLink>
+
             </NavItem>
             <NavItem>
-              <NavLink onClick={()=>setpage("gallery")}>
-                Gallery
-              </NavLink>
+            <NavLink to="/gallery" className='nav-link' >Gallery</NavLink>
+
             </NavItem>
           </Nav>
         </Collapse>

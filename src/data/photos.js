@@ -1,4 +1,4 @@
-export default [
+const photos= [
     {
       id: '68a74c6c-dfc3-11ec-9d64-0242ac120002',
       url: 'DSC_3458_1.jpg',
@@ -54,3 +54,5 @@ export default [
       feature: false
     }
   ]
+
+export default photos

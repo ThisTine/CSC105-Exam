@@ -1,4 +1,4 @@
-export default [
+const news = [
 	{
 	  category: 'Foto',
 	  title: "Uvalde: US to review police response to Texas school shooting",
@@ -48,3 +48,5 @@ export default [
 	  hours: '14:06'
 	},
   ]
+
+  export default news

@@ -1,4 +1,3 @@
-import { Carousel } from 'bootstrap'
 import React from 'react'
 import { Card, CardBody, CardTitle, Col, Container, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Row, UncontrolledCarousel } from 'reactstrap'
 import breakingNews from '../data/breakingNews'

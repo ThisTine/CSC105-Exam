@@ -1,4 +1,4 @@
-export default [{"id":"a55d18c7-32ac-4822-971c-42a0f158de5f","username":"Zorine","comment":"In congue. Etiam justo. Etiam pretium iaculis justo.","islike":false,"scores":4,"pId":"68a74c6c-dfc3-11ec-9d64-0242ac120002"},
+const comments = [{"id":"a55d18c7-32ac-4822-971c-42a0f158de5f","username":"Zorine","comment":"In congue. Etiam justo. Etiam pretium iaculis justo.","islike":false,"scores":4,"pId":"68a74c6c-dfc3-11ec-9d64-0242ac120002"},
 {"id":"81ce6e99-aba2-45a9-882a-a1c3fd1d0233","username":"Carleen","comment":"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.","islike":false,"scores":2,"pId":"fd6556e9-cf0e-47ed-923c-807e12d4323c"},
 {"id":"4e8b6933-4632-41ea-96ed-00861332af65","username":"Raddy","comment":"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.","islike":true,"scores":5,"pId":7},
 {"id":"ebaa791f-6877-492b-b87e-1e48594dcc24","username":"Danette","comment":"In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.","islike":false,"scores":5,"pId":"51786293-0686-41d6-ba20-85b0fbebc198"},
@@ -58,3 +58,5 @@ export default [{"id":"a55d18c7-32ac-4822-971c-42a0f158de5f","username":"Zorine"
 {"id":"00eddcf7-55fc-478f-85bd-4cefea0c6df9","username":"Torrance","comment":"Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.","islike":false,"scores":3,"pId":"68a74c6c-dfc3-11ec-9d64-0242ac120002"},
 {"id":"8b01d1c3-8a6d-4e84-9e3e-2b0c3629a685","username":"Sascha","comment":"Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.","islike":false,"scores":5,"pId":"51786293-0686-41d6-ba20-85b0fbebc198"},
 {"id":"9cff749a-d62f-4155-ab74-38937cdf7cb4","username":"Jeffrey","comment":"Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.","islike":true,"scores":5,"pId":7}]
+
+export default comments

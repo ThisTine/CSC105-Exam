@@ -37,7 +37,7 @@ export default function AboutMePage() {
       <Card>
       <div className='d-flex flex-column align-items-center mt-2 gap-3' >
       <h1 className='mt-3'>Hello, there.</h1>
-      <img className='img-thumbnail' style={{borderRadius:"50%",height:"250px",width:"fit-content"}} src="/images/me.jpg" />
+      <img className='img-thumbnail' style={{borderRadius:"50%",height:"250px",width:"fit-content"}} alt="me" src="/images/me.jpg" />
       <p>It's Tine, A student who is actually a student.</p>
       </div>
       </Card>

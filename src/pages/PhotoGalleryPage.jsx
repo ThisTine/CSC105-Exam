@@ -18,7 +18,7 @@ export default function PhotoGalleryPage() {
         </div>
         <div>
             {selected && <Row className='my-3' >
-                <Col xs={12} lg={6}><img  className='img-fluid  shadow' src={"/images/"+selected.url} /></Col>
+                <Col xs={12} lg={6}><img alt={selected.title} className='img-fluid  shadow' src={"/images/"+selected.url} /></Col>
                 <Col xs={12} lg={6}><h1>{selected.title}</h1></Col>
             </Row>}
         </div>
