@@ -3,9 +3,9 @@ import { Col, Container, Row, Button, ListGroup, Input, ListGroupItem, ListGroup
 import GalleryItem from '../components/GalleryItem'
 import CommentModal from '../modal/CommentModal'
 import { connect } from 'react-redux'
-import {addcomment,deletecomment} from '../redux/commentStore'
-import {addlike} from '../redux/likeStore'
-function PhotoGalleryPage({photos, comments,addcomment,deletecomment,likes,addlike}) {
+import { addcomment, deletecomment } from '../redux/commentStore'
+import { addlike } from '../redux/likeStore'
+function PhotoGalleryPage({ photos, comments, addcomment, deletecomment, likes, addlike, user }) {
     const [selected, setselected] = useState(null)
     const [isopen, setisopen] = useState(false)
     const ref = useRef()
@@ -30,13 +30,13 @@ function PhotoGalleryPage({photos, comments,addcomment,deletecomment,likes,addli
     // const unlike = (id) => {
     //     setlikes(val => val.filter(item => item !== id))
     // }
-    const closemodal = ()=>{
+    const closemodal = () => {
         setselected(null)
     }
 
     return (
         <Container>
-            {selected && <CommentModal isopen={isopen} setisopen={setisopen} id={selected.id || null} addcomment={addcomment} />}
+            {selected && <CommentModal isopen={isopen} setisopen={setisopen} id={selected.id || null} addcomment={addcomment} user={user} />}
             <div className='my-5' >
                 <h1 ref={ref}>Gallery</h1>
                 <hr />
@@ -46,23 +46,25 @@ function PhotoGalleryPage({photos, comments,addcomment,deletecomment,likes,addli
                     <ModalHeader toggle={closemodal} >{selected.title}</ModalHeader>
                     <ModalBody>
                         <Row className='my-3' >
-                            <Col xs={12} ><img alt={selected.title} className='img-fluid  shadow' src={"/images/" + selected.url} /></Col>
+                            <Col xs={12} ><img alt={selected.title} className='img-fluid  shadow' onClick={() => addlike({ id: selected.id })} src={"/images/" + selected.url} /></Col>
                             <Col xs={12} >
                                 <h1>{selected.title}</h1>
                                 <p>Rating: {rating} </p>
                                 <p>Likes: {comments.filter(item => (item.islike && item.pId === selected.id)).length + likes.filter(item => item === selected.id).length}</p>
                                 <div className='d-flex gap-3'>
                                     <Button onClick={() => setisopen(true)} className="mb-3" color='primary'>Add comment</Button>
-                                    <Input type='button' value="Like" onClick={() => addlike({id:selected.id})}
+                                    <Input type='button' value="Like" onClick={() => addlike({ id: selected.id })}
                                         className="mb-3 btn btn-primary" color='primary' />
                                 </div>
-                                <div style={{ }}>
+                                <div>
                                     <ListGroup>
-                                        {comments.filter(item => (item.self && item.pId === selected.id)).map(item => <ListGroupItem key={item.id} >
-                                            <ListGroupItemHeading>{item.username} (you)</ListGroupItemHeading>
-                                            <ListGroupItemText style={{ whiteSpace: "pre-line" }}>{item.comment + `\n`} - {item.scores} score(s)</ListGroupItemText>
-                                            <Button color="danger" onClick={() => deletecomment({id:item.id})} >delete</Button>
-                                        </ListGroupItem>)}
+                                        {comments.filter(item => (item.self && item.pId === selected.id)).map(item => {
+                                             return <ListGroupItem key={item.id} >
+                                                <ListGroupItemHeading> {item.avatar && <img className='img-fluid' style={{ borderRadius: "50%" }} src={"https://www.gravatar.com/avatar/" + item.avatar} />} {item.username} (you)</ListGroupItemHeading>
+                                                <ListGroupItemText style={{ whiteSpace: "pre-line" }}>{item.comment + `\n`} - {item.scores} score(s)</ListGroupItemText>
+                                                <Button color="danger" onClick={() => deletecomment({ id: item.id })} >delete</Button>
+                                            </ListGroupItem>
+                                        })}
                                         {comments.filter(item => (!item.self && item.pId === selected.id)).map(item => <ListGroupItem key={item.id}>
                                             <ListGroupItemHeading>{item.username}</ListGroupItemHeading> <ListGroupItemText style={{ whiteSpace: "pre-line" }}>{item.comment + `\n`} - {item.scores} score(s) </ListGroupItemText> </ListGroupItem>)}
                                     </ListGroup>
@@ -79,4 +81,4 @@ function PhotoGalleryPage({photos, comments,addcomment,deletecomment,likes,addli
     )
 }
 
-export default connect((state)=>state,{addcomment,deletecomment,addlike})(PhotoGalleryPage)
+export default connect((state) => state, { addcomment, deletecomment, addlike })(PhotoGalleryPage)

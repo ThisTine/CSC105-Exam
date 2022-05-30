@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Form, ModalBody, ModalHeader, Modal, Button, ModalFooter,FormGroup,Input,Label, FormFeedback } from 'reactstrap'
 const init = {username:"",comment:"",rating:null}
-export default function CommentModal({ isopen, setisopen,id,addcomment }) {
-    const [form,setform] = useState({...init})
+export default function CommentModal({ isopen, setisopen,id,addcomment,user }) {
+    const [form,setform] = useState({...init,username:user.username || ""})
     const onsubmit = (e)=>{
         e.preventDefault()
         if(form.comment.length>3 || form.username !== "" || form.rating !== null){
-            addcomment({id,...form})
+            addcomment({id,...form,...(user.email ? {email: user.email} : {})})
             setform({...init})
             setisopen(false)
         }
@@ -22,6 +22,7 @@ export default function CommentModal({ isopen, setisopen,id,addcomment }) {
                             id="username"
                             name="username"
                             placeholder="username"
+                            readOnly={user.username !== null}
                             type="text"
                             value={form.username}
                             invalid={form.username===""}
