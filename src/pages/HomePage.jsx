@@ -1,9 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Card, CardBody, CardTitle, Col, Container, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Row, UncontrolledCarousel } from 'reactstrap'
-import breakingNews from '../data/breakingNews'
-import photos from '../data/photos'
 
-export default function HomePage() {
+ function HomePage({photos,breakingNews}) {
   return (
     <Container>
         <div className='my-5' >
@@ -41,3 +40,5 @@ export default function HomePage() {
     </Container>
   )
 }
+
+export default connect(state=>state)(HomePage)
