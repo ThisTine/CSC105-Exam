@@ -61,11 +61,11 @@ export default function PhotoGalleryPage() {
                             <ListGroup>
                                 {comments.filter(item => (item.self && item.pId === selected.id)).map(item => <ListGroupItem key={item.id} >
                                     <ListGroupItemHeading>{item.username} (you)</ListGroupItemHeading>
-                                    <ListGroupItemText>{item.comment}</ListGroupItemText>
+                                    <ListGroupItemText style={{whiteSpace:"pre-line"}}>{item.comment+`\n`} - {item.scores} score(s)</ListGroupItemText>
                                     <Button color="danger" onClick={() => deletecomment(item.id)} >delete</Button>
                                 </ListGroupItem>)}
                                 {comments.filter(item => (!item.self && item.pId === selected.id)).map(item => <ListGroupItem key={item.id}>
-                                    <ListGroupItemHeading>{item.username}</ListGroupItemHeading> <ListGroupItemText>{item.comment}</ListGroupItemText> </ListGroupItem>)}
+                                    <ListGroupItemHeading>{item.username}</ListGroupItemHeading> <ListGroupItemText style={{whiteSpace:"pre-line"}}>{item.comment+`\n`} - {item.scores} score(s) </ListGroupItemText> </ListGroupItem>)}
                             </ListGroup>
                         </div>
                     </Col>
