@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HomePage from './pages/HomePage';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import AboutMePage from './pages/AboutMePage';
+import PhotoGalleryPage from './pages/PhotoGalleryPage';
+import Header from './components/Header';
+import { useState } from 'react';
 
 function App() {
+  const [page,setpage] = useState("home")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setpage={setpage}/>
+      <div style={{minHeight:"calc(100vh - 110px)"}}>
+      {page === "home" && <HomePage/>}
+      {page === "about" && <AboutMePage/>}
+      {page === "gallery" && <PhotoGalleryPage/>}
+      </div>
+      <Footer setpage={setpage}/>
     </div>
   );
 }
