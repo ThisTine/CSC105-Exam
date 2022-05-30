@@ -14,6 +14,7 @@ const LoginModal = ({isopen,onclose,login})=>{
             <Form onSubmit={onsubmit}>
 
             <ModalBody>
+                <p>Allow you to comment with profile picture (Gravatar) and default username.</p>
                     <FormGroup floating>
                     <Input
                         id="username"

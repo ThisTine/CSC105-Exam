@@ -7,7 +7,7 @@ export default function CommentModal({ isopen, setisopen,id,addcomment,user }) {
         e.preventDefault()
         if(form.comment.length>3 || form.username !== "" || form.rating !== null){
             addcomment({id,...form,...(user.email ? {email: user.email} : {})})
-            setform({...init})
+            setform({...init,username:user.username || ""})
             setisopen(false)
         }
     }
