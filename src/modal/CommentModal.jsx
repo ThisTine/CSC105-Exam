@@ -6,7 +6,7 @@ export default function CommentModal({ isopen, setisopen,id,addcomment }) {
     const onsubmit = (e)=>{
         e.preventDefault()
         if(form.comment.length>3 || form.username !== "" || form.rating !== null){
-            addcomment(id,form)
+            addcomment({id,...form})
             setform({...init})
             setisopen(false)
         }
