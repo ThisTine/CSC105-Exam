@@ -27,7 +27,7 @@ export default function CommentModal({ isopen, setisopen,id,addcomment }) {
                             invalid={form.username===""}
                             onChange={(e)=>setform(val=>({...val,username:e.target.value})) }
                         />
-                        <Label for="username">
+                        <Label htmlFor="username">
                             Username <label className='text-danger'>*</label>
                         </Label>
                         <FormFeedback>username is required.</FormFeedback>
@@ -54,9 +54,9 @@ export default function CommentModal({ isopen, setisopen,id,addcomment }) {
                     </FormGroup>
 
                     <FormGroup inline className='d-flex gap-4' >
-                        <label>Rating <label className='text-danger'>*</label> </label>
+                        <label  >Rating <label className='text-danger'>*</label> </label>
                         {[0,1,2,3,4,5].map(item=><div className='d-flex' key={item}>
-                            <Input name="fev" checked={item === form.rating} id={"select"+item} type='radio' onChange={()=>setform({...form,rating:item})} /> <label for={"select"+item} > {item}</label>  </div>)}
+                            <Input name="fev" checked={item === form.rating} id={"select"+item} type='radio' onChange={()=>setform({...form,rating:item})} /> <label htmlFor={"select"+item} > {item}</label>  </div>)}
                     </FormGroup>
                     {form.rating === null && <p className='text-danger'>Rating is required.</p>}
 
